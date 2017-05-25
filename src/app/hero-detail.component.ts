@@ -8,7 +8,8 @@ import {HeroService} from './services/hero.service';
 
 @Component({
     selector: 'hero-detail',
-    templateUrl: './templates/hero-detail.component.html'
+    templateUrl: './templates/hero-detail.component.html',
+    styleUrls: ['./styles/hero-detail.component.css']
 })
 
 export class HeroDetailComponent implements OnInit {
@@ -18,13 +19,16 @@ export class HeroDetailComponent implements OnInit {
         private route: ActivatedRoute,
         private location: Location
     ){};
-    ngOnInit(): void{
+    ngOnInit(): void {
         this.route.params
         .switchMap((params: Params) => this.heroService.getHero(+params['id']))
         .subscribe(hero => this.hero = hero);
         console.log(this.route.params['value']);
     };
-    goBack(): void{
+    goBack(): void {
         this.location.back();
+    };
+    save(): void {
+        this.heroService.update(this.hero).then(() => this.goBack())
     }
 }
