@@ -10,12 +10,13 @@ import { InMemoryDataService }  from './services/in-memory-data.service';
 
 //compnent
 import { AppComponent } from './app.component';
-import {HeroDetailComponent} from './hero-detail.component';
-import {HeroesComponent} from './heroes.component';
-import {DashBoardComponent} from './dashboard.component';
-import {HeroSearchComponent} from './hero-search.component';
+import {HeroDetailComponent} from './component/hero-detail/hero-detail.component';
+import {HeroesComponent} from './component/heroes/heroes.component';
+import {DashBoardComponent} from './component/dashboard/dashboard.component';
+import {HeroSearchComponent} from './component/hero-search/hero-search.component';
 
 import {AppRoutingModule} from './app-routing.module';
+import { DddComponent } from './ddd/ddd.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import {AppRoutingModule} from './app-routing.module';
     HeroDetailComponent,
     HeroesComponent,
     DashBoardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    DddComponent
   ],
   providers: [HeroService],
   bootstrap: [AppComponent]

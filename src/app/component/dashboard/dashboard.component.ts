@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 
-import {Hero} from './hero';
-import {HeroService} from './services/hero.service';
+import {Hero} from '../../hero';
+import {HeroService} from '../../services/hero.service';
 
 @Component({
     selector: 'my-dashboard',
-    templateUrl: './templates/dashboard.component.html',
-    styleUrls: ['./styles/dashboard.component.css']
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.css']
 })
 
 export class DashBoardComponent implements OnInit {

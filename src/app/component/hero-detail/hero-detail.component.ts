@@ -3,13 +3,13 @@ import {ActivatedRoute, Params} from '@angular/router';
 import {Location} from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
-import {Hero} from './hero';
-import {HeroService} from './services/hero.service';
+import {Hero} from '../../hero';
+import {HeroService} from '../../services/hero.service';
 
 @Component({
     selector: 'hero-detail',
-    templateUrl: './templates/hero-detail.component.html',
-    styleUrls: ['./styles/hero-detail.component.css']
+    templateUrl: './hero-detail.component.html',
+    styleUrls: ['./hero-detail.component.css']
 })
 
 export class HeroDetailComponent implements OnInit {

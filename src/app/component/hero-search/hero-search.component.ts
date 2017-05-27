@@ -10,13 +10,13 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
-import {HeroSearchService} from './services/hero-search.service';
-import {Hero} from './hero';
+import {HeroSearchService} from '../../services/hero-search.service';
+import {Hero} from '../../hero';
 
 @Component({
     selector: 'hero-search',
-    templateUrl: './templates/hero-search.component.html',
-    styleUrls: ['./styles/hero-search.component.css'],
+    templateUrl: './hero-search.component.html',
+    styleUrls: ['./hero-search.component.css'],
     providers: [HeroSearchService]
 })
 
@@ -25,7 +25,7 @@ export class HeroSearchComponent implements OnInit {
     private searchTerms = new Subject<string>();
     constructor(
         private heroSearchService: HeroSearchService,
-        private router: Router 
+        private router: Router
     ){}
     //push a search term into the observable stream.
     search(term: string): void {
@@ -50,6 +50,6 @@ export class HeroSearchComponent implements OnInit {
 
     gotoDetail(hero: Hero): void {
         let link = ['/detail', hero.id];
-        this.router.navigate(link)
+        this.router.navigate(link);
     }
 }
