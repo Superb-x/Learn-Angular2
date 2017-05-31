@@ -21,7 +21,7 @@ export class HeroFormComponent {
 
   submitted = false;
 
-  car = [];
+  cars = [];
 
   onSubmit() {
     this.submitted = true;
@@ -36,14 +36,15 @@ export class HeroFormComponent {
 
   getMembers() {
     let MEMBERS_URL = `https://api.github.com/orgs/angular/members?page=1&per_page=5`;
+    //let MEMBERS_URL = `http://localhost:4200/app/json/car.json`;
     let xhr = new XMLHttpRequest(); // (1)
     xhr.open("GET", MEMBERS_URL); // (2)
     xhr.onreadystatechange = () => { // (3)
       if (xhr.readyState == 4 && xhr.status == 200) { // (4)
         if (xhr.responseText) {
           try {
-            this.car = JSON.parse(xhr.responseText); // (5)
-            console.log(this.car)
+            this.cars = JSON.parse(xhr.responseText); // (5)
+            console.log(this.cars)
           } catch (error) {
             throw error;
           }
@@ -53,13 +54,23 @@ export class HeroFormComponent {
     xhr.send(null); // (6)
   }
 
+  logError(err: any) {
+    console.log(err)
+  }
+
+  getActualVisits() {
+    //https://api.github.com/orgs/angular/members?page=1&per_page=5
+    return this.http.get("https://api.github.com/orgs/angular/members?page=1&per_page=5")
+      .map(response => response.json())
+      .subscribe(
+        data => {this.cars = data;console.log(this.cars)},
+        err => this.logError(err),
+        () => console.log('get actual visits complete')
+      );
+  }
+
   onHt() {
-    this.http.get(`https://api.github.com/orgs/angular/members?page=1&per_page=5`)
-      .map(res => res.json())
-      .subscribe(data => {
-        if (data) this.car = data;
-        console.log(this.car)
-      });
+    this.getActualVisits();
   }
 
 }

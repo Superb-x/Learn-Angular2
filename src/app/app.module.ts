@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 import {HeroService} from './services/hero.service';
 
@@ -15,6 +15,7 @@ import {HeroesComponent} from './component/heroes/heroes.component';
 import {DashBoardComponent} from './component/dashboard/dashboard.component';
 import {HeroSearchComponent} from './component/hero-search/hero-search.component';
 import {HeroFormComponent} from './component/hero-form/hero-form.component';
+import { WikiComponent } from './component/wiki/wiki.component';
 
 import {AppRoutingModule} from './app-routing.module';
 
@@ -23,6 +24,7 @@ import {AppRoutingModule} from './app-routing.module';
     BrowserModule,
     FormsModule,
     HttpModule,
+    JsonpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
   ],
@@ -33,6 +35,7 @@ import {AppRoutingModule} from './app-routing.module';
     DashBoardComponent,
     HeroSearchComponent,
     HeroFormComponent,
+    WikiComponent,
   ],
   providers: [HeroService],
   bootstrap: [AppComponent]
