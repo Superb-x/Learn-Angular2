@@ -19,6 +19,6 @@
   <button (click)="gotoDetail()">View Details</button>
 </div>
 <div class="add-hero">
-  <label for="">Hero Name:</label><input #heroName (keyup)="onKey($event)" [(ngModel)]="hero.name">
+  <label for="">Hero Name:</label><input #heroName (keyup.enter)="onKey($event)" [(ngModel)]="hero.name">
   <button (click)="add(heroName.value); heroName.value=''">Add</button>
 </div>

@@ -49,13 +49,10 @@ export class HeroesComponent {
       if (this.selectedHero === hero) {this.selectedHero = null;}
     })
   }
-  onKey($event: any, name: string): void {
-    if ($event.key === 'Enter'){
-      console.log(this.hero.name);
+  onKey(event: any, name: string): void {
       this.add(this.hero.name);
       this.hero = {
         name: ''
-      }
-    }
+      };
   }
 }
