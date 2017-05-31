@@ -1,22 +1,32 @@
 [
   {
     "id": 1,
-    "name": "crown"
+    "name": "crown",
+    "power": "shoot",
+    "alterEgo": "shoot"
   },
   {
     "id": 2,
-    "name": "prado"
+    "name": "prado",
+    "power": "shoot",
+    "alterEgo": "shoot"
   },
   {
     "id": 3,
-    "name": "reiz"
+    "name": "reiz",
+    "power": "shoot",
+    "alterEgo": "shoot"
   },
   {
     "id": 4,
-    "name": "vios"
+    "name": "vios",
+    "power": "shoot",
+    "alterEgo": "shoot"
   },
   {
     "id": 5,
-    "name": "corolla"
+    "name": "corolla",
+    "power": "shoot",
+    "alterEgo": "shoot"
   }
 ]

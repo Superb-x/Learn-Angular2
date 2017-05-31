@@ -8,7 +8,7 @@ import {Hero} from './hero';
 
 @Component({
   selector: 'hero-form',
-  templateUrl: './hero-form.component.html'
+  templateUrl: './hero-form.component.html',
 })
 
 export class HeroFormComponent {
@@ -21,11 +21,12 @@ export class HeroFormComponent {
 
   submitted = false;
 
-  cars = [];
-
   onSubmit() {
     this.submitted = true;
+    console.log(this.model);
   }
+
+  cars = [];
 
   newHero() {
     this.model = new Hero(42, '', '');
@@ -57,20 +58,22 @@ export class HeroFormComponent {
   logError(err: any) {
     console.log(err)
   }
-
-  getActualVisits() {
-    //https://api.github.com/orgs/angular/members?page=1&per_page=5
-    return this.http.get("https://api.github.com/orgs/angular/members?page=1&per_page=5")
-      .map(response => response.json())
-      .subscribe(
-        data => {this.cars = data;console.log(this.cars)},
-        err => this.logError(err),
-        () => console.log('get actual visits complete')
-      );
+  // 注意，当请求线上地址的时候一定要将InMemoryWebApiModule模块在app.module.ts中删除或者注释掉，否则会一直报错
+  private baseUrl = 'https://api.github.com/orgs/angular/members?page=1&per_page=5';
+  getActualVisits(): Promise<any[]>{
+    return this.http.get(this.baseUrl)
+               .toPromise()
+               .then(response => response.json().data)
+               .catch(this.handleError);
   }
-
+  private handleError(error: any): Promise<any> {
+      console.error('An error occurred', error); // for demo purposes only
+      return Promise.reject(error.message || error);
+  }
   onHt() {
-    this.getActualVisits();
+    this.http.get(this.baseUrl).subscribe(res => {this.cars = res.json();console.log(this.cars)})
+
+     
   }
 
 }

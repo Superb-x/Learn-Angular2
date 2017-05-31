@@ -10,7 +10,8 @@
       "assets": [
         "assets",
         "favicon.ico",
-        "styles.css"
+        "styles.css",
+        "form.css"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -20,7 +21,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "form.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
