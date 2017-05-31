@@ -14,6 +14,7 @@ import {HeroDetailComponent} from './component/hero-detail/hero-detail.component
 import {HeroesComponent} from './component/heroes/heroes.component';
 import {DashBoardComponent} from './component/dashboard/dashboard.component';
 import {HeroSearchComponent} from './component/hero-search/hero-search.component';
+import {HeroFormComponent} from './component/hero-form/hero-form.component';
 
 import {AppRoutingModule} from './app-routing.module';
 
@@ -31,6 +32,7 @@ import {AppRoutingModule} from './app-routing.module';
     HeroesComponent,
     DashBoardComponent,
     HeroSearchComponent,
+    HeroFormComponent,
   ],
   providers: [HeroService],
   bootstrap: [AppComponent]
