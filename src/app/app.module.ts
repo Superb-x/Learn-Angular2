@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import {HeroService} from './services/hero.service';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './services/in-memory-data.service';
+import { InMemoryDataService } from './services/in-memory-data.service';
 
 //compnent
 import { AppComponent } from './app.component';
