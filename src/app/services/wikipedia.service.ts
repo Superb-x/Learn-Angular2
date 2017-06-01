@@ -13,6 +13,10 @@ export class WikipediaService {
     private jsonp: Jsonp
   ){}
 
+  private extractData(res) {
+      let body = res.json();
+      return body.data || {};
+  }
   search(term: string){
       let wikiUrl = 'http://en.wikipedia.org/w/api.php';
 
@@ -23,6 +27,6 @@ export class WikipediaService {
       params.set('callback', 'JSONP_CALLBACK');
 
       return this.jsonp.get(wikiUrl, {search: params})
-        .map(res => <string[]> res.json()[1])
+        .map(res => <string[]>res.json()[1])
   }
 }

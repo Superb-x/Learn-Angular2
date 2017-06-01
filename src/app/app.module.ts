@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 import {HeroService} from './services/hero.service';
+import {AjaxService} from './services/ajax.service';
+
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
@@ -25,7 +27,7 @@ import {AppRoutingModule} from './app-routing.module';
     FormsModule,
     HttpModule,
     JsonpModule,
-    //InMemoryWebApiModule.forRoot(InMemoryDataService),
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
   ],
   declarations: [
@@ -37,7 +39,7 @@ import {AppRoutingModule} from './app-routing.module';
     HeroFormComponent,
     WikiComponent,
   ],
-  providers: [HeroService],
+  providers: [HeroService, AjaxService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

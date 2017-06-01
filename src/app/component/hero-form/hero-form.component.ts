@@ -1,8 +1,10 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Headers, Http} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
+import {AjaxService} from '../../services/ajax.service';
+
 
 import {Hero} from './hero';
 
@@ -13,7 +15,8 @@ import {Hero} from './hero';
 
 export class HeroFormComponent {
   constructor(
-    private http: Http
+    private http: Http,
+    private ajax: AjaxService
   ){}
   powers = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
 
@@ -71,9 +74,8 @@ export class HeroFormComponent {
       return Promise.reject(error.message || error);
   }
   onHt() {
-    this.http.get(this.baseUrl).subscribe(res => {this.cars = res.json();console.log(this.cars)})
-
-     
+     //this.http.get(this.baseUrl).subscribe(res => {this.cars = res.json();console.log(this.cars)})
+     this.ajax.getData('api.php/v1/vehicles/getBrand').then(res => {console.log(res.data.vehicle);this.cars = res.data.vehicle})
   }
 
 }
