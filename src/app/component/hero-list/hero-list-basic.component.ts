@@ -43,7 +43,9 @@ export class HeroListComponent implements OnInit {
     state: string = 'small';
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        console.log('初始化完毕')
+    }
     
     animateMe() {
         this.state = (this.state === 'small' ? 'large' : 'small');

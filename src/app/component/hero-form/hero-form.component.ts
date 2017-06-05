@@ -62,7 +62,7 @@ export class HeroFormComponent {
     console.log(err)
   }
   // 注意，当请求线上地址的时候一定要将InMemoryWebApiModule模块在app.module.ts中删除或者注释掉，否则会一直报错
-  private baseUrl = 'https://api.github.com/orgs/angular/members?page=1&per_page=5';
+  private baseUrl = 'app/json/car.json';
   getActualVisits(): Promise<any[]>{
     return this.http.get(this.baseUrl)
                .toPromise()
@@ -74,8 +74,8 @@ export class HeroFormComponent {
       return Promise.reject(error.message || error);
   }
   onHt() {
-     //this.http.get(this.baseUrl).subscribe(res => {this.cars = res.json();console.log(this.cars)})
-     this.ajax.getData('api.php/v1/vehicles/getBrand').then(res => {console.log(res.data.vehicle);this.cars = res.data.vehicle})
+     this.http.get(this.baseUrl).subscribe(res => {this.cars = res.json();console.log(this.cars)})
+     //this.ajax.getData('api.php/v1/vehicles/getBrand').then(res => {console.log(res.data.vehicle);this.cars = res.data.vehicle})
   }
 
 }
