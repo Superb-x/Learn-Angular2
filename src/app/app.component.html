@@ -1,9 +1,8 @@
 <h1>{{title}}</h1>
 <nav>
-    <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
-    <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-    <a routerLink="/heroform" routerLinkActive="active">HeroForm</a>
-    <a routerLink="/wiki" routerLinkActive="active">WiKi</a>
-    <a routerLink="/animate" routerLinkActive="active">Animate</a>
+    <a *ngFor="let item of linkArr; index as i" 
+        routerLink="{{item.url}}" 
+        routerLinkActive="active"
+        (click)="getIndex(i)">{{item.name}}</a>
 </nav>
 <router-outlet></router-outlet>

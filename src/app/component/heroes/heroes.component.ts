@@ -8,7 +8,7 @@ import {HeroService} from '../../services/hero.service';
   selector: 'my-heroes',
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css'],
-  providers: []
+  providers: [HeroService]
 })
 
 export class HeroesComponent {

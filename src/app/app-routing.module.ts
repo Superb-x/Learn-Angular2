@@ -6,6 +6,7 @@ import { HeroDetailComponent }  from './component/hero-detail/hero-detail.compon
 import { HeroFormComponent } from './component/hero-form/hero-form.component';
 import { WikiComponent } from './component/wiki/wiki.component';
 import { HeroListComponent } from './component/hero-list/hero-list-basic.component';
+import { AboutComponent } from './component/about/about.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: 'heroform',     component: HeroFormComponent },
   { path: 'wiki',     component: WikiComponent },
   { path: 'animate',     component: HeroListComponent },
-  
+  { path: 'about',     component: AboutComponent },  
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

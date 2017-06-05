@@ -4,13 +4,15 @@ import {Headers, Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import {AjaxService} from '../../services/ajax.service';
-
-
+import { fadeInAnimation } from "../../animations/fade-in.animation";
+import { routerTransition } from "../../animations/router.animation";
 import {Hero} from './hero';
 
 @Component({
   selector: 'hero-form',
   templateUrl: './hero-form.component.html',
+  animations: [routerTransition()],
+  host: { '[@routerTransition]': '' }
 })
 
 export class HeroFormComponent {
