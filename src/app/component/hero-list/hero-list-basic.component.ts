@@ -11,17 +11,8 @@ import {
 
 @Component({
     selector: 'hero-list',
-    template: `<p [@myAwesomeAnimation]="state" (click)="animateMe()">I will animate</p>`,
-    styles: [`
-        p {
-            width:200px;
-            background:lightgray;
-            margin: 100px auto;
-            text-align:center;
-            padding:20px;
-            font-size:1.5em;
-        }
-    `],
+    templateUrl: './hero-list.component.html',
+    styleUrls: ['./hero-list.component.css'],
     animations: [
         trigger('myAwesomeAnimation', [
             state('small', style({
@@ -35,8 +26,17 @@ import {
                 style({opacity: 1, transform: 'translateY(35px)',  offset: 0.5}),
                 style({opacity: 1, transform: 'translateY(0)',     offset: 1.0})
             ]))),
+        ]),
+        trigger('fadeInAnimation', [
+            state('void', style({position:'fixed', width:'100%', opacity: 0}) ),
+            state('*', style({position:'fixed', width:'100%', opacity: 1}) ),
+            transition(':enter', [  // before 2.1: transition('void => *', [
+                style({opacity: 0}),
+                animate('0.5s ease-in-out', style({ opacity: 1}))
+            ])
         ])
-    ]
+    ],
+    host: {'[@fadeInAnimation]': ''}
 })
 
 export class HeroListComponent implements OnInit {
@@ -46,6 +46,15 @@ export class HeroListComponent implements OnInit {
     ngOnInit() { 
         console.log('初始化完毕')
     }
+
+    imgUrl = [
+        'assets/images/1.jpg', 
+        'assets/images/2.jpg', 
+        'assets/images/3.jpg', 
+        'assets/images/4.jpg', 
+        'assets/images/5.jpg',
+        'assets/images/6.jpg'
+        ]
     
     animateMe() {
         this.state = (this.state === 'small' ? 'large' : 'small');

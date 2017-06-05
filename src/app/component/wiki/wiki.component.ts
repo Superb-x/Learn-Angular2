@@ -5,6 +5,10 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 import { Subject } from 'rxjs/Subject';
 import { WikipediaService } from '../../services/wikipedia.service';
+import { fadeInAnimation } from "../../animations/fade-in.animation";
+import { routerTransition } from "../../animations/router.animation";
+import { AppState } from "../../app.service";
+
 @Component({
   selector: 'my-wiki-smart',
   template: `
@@ -16,11 +20,16 @@ import { WikipediaService } from '../../services/wikipedia.service';
         <p><a href="https://zh.wikipedia.org/wiki/{{item}}" target="_blank">{{i}} {{item}}</a></p>
       </li>
     </ul>`,
-  providers: [ WikipediaService ]
+  providers: [ WikipediaService ],
+  animations: [routerTransition()],
+  host: { '[@routerTransition]': '' }
 })
 export class WikiComponent implements OnInit {
   items: Observable<string[]>;
-  constructor (private wikipediaService: WikipediaService) {}
+  constructor (
+    private wikipediaService: WikipediaService,
+    private state: AppState
+  ) {}
   private searchTermStream = new Subject<string>();
   search(term: string) { this.searchTermStream.next(term)}
   ngOnInit() {
@@ -29,7 +38,8 @@ export class WikiComponent implements OnInit {
       .distinctUntilChanged()
       .switchMap((term: string) => this.wikipediaService.search(term));
   }
-  showData(): void{
-    console.log(this.items);
+  showData() {
+    console.log(this.state.get('index'));
+    return 123
   }
 }

@@ -6,7 +6,8 @@ import { HttpModule, JsonpModule } from '@angular/http';
 
 import {HeroService} from './services/hero.service';
 import {AjaxService} from './services/ajax.service';
-
+import { AppState, InternalStateType } from "./app.service";
+import { GlobalState } from './global.state';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
@@ -20,6 +21,7 @@ import {HeroSearchComponent} from './component/hero-search/hero-search.component
 import {HeroFormComponent} from './component/hero-form/hero-form.component';
 import { WikiComponent } from './component/wiki/wiki.component';
 import { HeroListComponent } from './component/hero-list/hero-list-basic.component';
+import { AboutComponent } from './component/about/about.component';
 
 import {AppRoutingModule} from './app-routing.module';
 
@@ -42,8 +44,9 @@ import {AppRoutingModule} from './app-routing.module';
     HeroFormComponent,
     WikiComponent,
     HeroListComponent,
+    AboutComponent,
   ],
-  providers: [HeroService, AjaxService],
+  providers: [HeroService, AjaxService, AppState, GlobalState],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
