@@ -5,7 +5,7 @@ import { HeroesComponent }      from './component/heroes/heroes.component';
 import { HeroDetailComponent }  from './component/hero-detail/hero-detail.component';
 import { HeroFormComponent } from './component/hero-form/hero-form.component';
 import { WikiComponent } from './component/wiki/wiki.component';
-import { HeroListComponent } from './component/hero-list/hero-list-basic.component';
+import { HeroListComponent } from './component/hero-list/animate.component';
 import { AboutComponent } from './component/about/about.component';
 
 

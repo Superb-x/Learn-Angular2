@@ -10,9 +10,9 @@ import {
 } from '@angular/animations';
 
 @Component({
-    selector: 'hero-list',
-    templateUrl: './hero-list.component.html',
-    styleUrls: ['./hero-list.component.css'],
+    selector: 'animate',
+    templateUrl: './animate.component.html',
+    styleUrls: ['./animate.component.css'],
     animations: [
         trigger('myAwesomeAnimation', [
             state('small', style({
@@ -28,8 +28,8 @@ import {
             ]))),
         ]),
         trigger('fadeInAnimation', [
-            state('void', style({position:'fixed', width:'100%', opacity: 0}) ),
-            state('*', style({position:'fixed', width:'100%', opacity: 1}) ),
+            state('void', style({overflow: 'hidden', width:'100%', opacity: 0}) ),
+            state('*', style({overflow: 'hidden', width:'100%', opacity: 1}) ),
             transition(':enter', [  // before 2.1: transition('void => *', [
                 style({opacity: 0}),
                 animate('0.5s ease-in-out', style({ opacity: 1}))
