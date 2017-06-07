@@ -1,0 +1,28 @@
+.count-down{
+  width:400px;
+  height:100px;
+  background: #0093ff;
+  padding: 2px 0;
+  color: #fff;
+}
+.body{
+    margin-top: 8px;
+}
+.content{
+      width:20%;
+      float: left;
+      margin: 0 2%;
+}
+.top{
+    font-size: 20px;;
+    line-height: 30px;
+    color: black;
+    background: white;
+    border-bottom: 2px solid black;
+    text-align: center;
+}
+.bottom{
+    font-size: 14px;
+    line-height: 20px;
+    background: gainsboro;
+}

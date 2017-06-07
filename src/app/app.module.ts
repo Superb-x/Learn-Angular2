@@ -22,6 +22,7 @@ import {HeroFormComponent} from './component/hero-form/hero-form.component';
 import { WikiComponent } from './component/wiki/wiki.component';
 import { HeroListComponent } from './component/hero-list/animate.component';
 import { AboutComponent } from './component/about/about.component';
+import { IntervalComponent } from "./component/interval/interval.component";
 
 import {AppRoutingModule} from './app-routing.module';
 
@@ -45,6 +46,7 @@ import {AppRoutingModule} from './app-routing.module';
     WikiComponent,
     HeroListComponent,
     AboutComponent,
+    IntervalComponent,
   ],
   providers: [HeroService, AjaxService, AppState, GlobalState],
   bootstrap: [AppComponent]

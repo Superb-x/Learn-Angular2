@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 import {
   trigger, //触发函数
   state,   //状态
@@ -55,7 +56,7 @@ export class HeroListComponent implements OnInit {
         'assets/images/5.jpg',
         'assets/images/6.jpg'
         ]
-    
+
     animateMe() {
         this.state = (this.state === 'small' ? 'large' : 'small');
     }
