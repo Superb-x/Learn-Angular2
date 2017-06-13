@@ -11,6 +11,6 @@ import { fadeInAnimation } from "../../animations/fade-in.animation";
 
 export class AboutComponent implements OnInit {
     constructor() { }
-    private endDate = new Date('2017-06-9 18:00:00');
+    private endDate = new Date('2017-9-30 18:00:00');
     ngOnInit() { }
 }
