@@ -50,7 +50,7 @@ export class HeroFormComponent {
         if (xhr.responseText) {
           try {
             this.cars = JSON.parse(xhr.responseText); // (5)
-            console.log(this.cars)
+            console.log(this.cars);
           } catch (error) {
             throw error;
           }
@@ -61,7 +61,7 @@ export class HeroFormComponent {
   }
 
   logError(err: any) {
-    console.log(err)
+    console.log(err);
   }
   // 注意，当请求线上地址的时候一定要将InMemoryWebApiModule模块在app.module.ts中删除或者注释掉，否则会一直报错
   private baseUrl = 'app/json/car.json';
