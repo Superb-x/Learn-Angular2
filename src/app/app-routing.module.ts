@@ -7,6 +7,7 @@ import { HeroFormComponent } from './component/hero-form/hero-form.component';
 import { WikiComponent } from './component/wiki/wiki.component';
 import { HeroListComponent } from './component/hero-list/animate.component';
 import { AboutComponent } from './component/about/about.component';
+import { EchartComponent } from './component/echarts/echart.component';
 
 
 const routes: Routes = [
@@ -17,11 +18,8 @@ const routes: Routes = [
   { path: 'heroform',     component: HeroFormComponent, data: {title:"英雄表单"} },
   { path: 'wiki',     component: WikiComponent, data: {title: "维基百科"} },
   { path: 'animate',     component: HeroListComponent, data: {title: "动画"} },
-  { 
-    path: 'about',
-    component: AboutComponent,
-    data: {title: '关于'}
- },  
+  { path: 'about', component: AboutComponent, data: {title: '关于'}},
+  { path: 'chart', component: EchartComponent, data: {title: '报表'}} 
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
