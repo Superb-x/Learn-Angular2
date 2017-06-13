@@ -10,14 +10,18 @@ import { AboutComponent } from './component/about/about.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard',  component: DashBoardComponent },
-  { path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'heroes',     component: HeroesComponent },
-  { path: 'heroform',     component: HeroFormComponent },
-  { path: 'wiki',     component: WikiComponent },
-  { path: 'animate',     component: HeroListComponent },
-  { path: 'about',     component: AboutComponent },  
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full', data: {title: '英雄列表'} },
+  { path: 'dashboard',  component: DashBoardComponent, data: {title: '英雄列表'} },
+  { path: 'detail/:id', component: HeroDetailComponent, data: {title: '英雄详情'}},
+  { path: 'heroes',     component: HeroesComponent, data: {title:　"英雄"} },
+  { path: 'heroform',     component: HeroFormComponent, data: {title:"英雄表单"} },
+  { path: 'wiki',     component: WikiComponent, data: {title: "维基百科"} },
+  { path: 'animate',     component: HeroListComponent, data: {title: "动画"} },
+  { 
+    path: 'about',
+    component: AboutComponent,
+    data: {title: '关于'}
+ },  
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
