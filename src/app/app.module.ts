@@ -28,6 +28,9 @@ import { AboutComponent } from './component/about/about.component';
 import { IntervalComponent } from "./component/interval/interval.component";
 import { EchartComponent } from './component/echarts/echart.component';
 import { EchartsNg2Module } from 'echarts-ng2';
+import { ParentComponent } from './component/parent/parent.component';
+import { ChildComponent } from './component/child/child.component';
+import { VersionChildComponent } from './component/child/changeVersion.component';
 
 import {AppRoutingModule} from './app-routing.module';
 
@@ -54,6 +57,9 @@ import {AppRoutingModule} from './app-routing.module';
     AboutComponent,
     IntervalComponent,
     EchartComponent,
+    ParentComponent,
+    ChildComponent,
+    VersionChildComponent,
   ],
   providers: [HeroService, AjaxService, AppState, GlobalState, echartsDirective],
   bootstrap: [AppComponent]

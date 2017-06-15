@@ -49,6 +49,10 @@ export class AppComponent implements OnInit {
         {
             name: 'Chart',
             url: '/chart'
+        },
+        {
+            name: 'Communicate',
+            url: '/communicate'
         }
     ];
     getIndex(index){

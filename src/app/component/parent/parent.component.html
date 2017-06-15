@@ -1,0 +1,15 @@
+<h1>{{msg}}</h1>
+<!--<h2>{{master}} controls {{heroes.length}} heroes</h2>
+<child *ngFor="let hero of heroes"
+    [hero]="hero"
+    [master]="master">
+</child>-->
+<input [(ngModel)]="heroname" (keyup.enter)="add()">
+<div [hidden]="!names.length">
+    <h2>Master controls {{names.length}} names</h2>
+    <child *ngFor="let name of names" [name]="name"></child>
+</div>
+<h2>Source code version</h2>
+<button (click)="newMinor()">New minor version</button>
+<button (click)="newMajor()">New major version</button>
+<version-child [major]="major" [minor]="minor"></version-child>
