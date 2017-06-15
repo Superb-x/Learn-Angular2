@@ -35,7 +35,7 @@ export class ParentComponent implements OnInit {
     msg = '父组件';
     heroname = '';
     names = ['亚索', '劫', '  ', '提莫'];
-    add = function(){
+    add() {
         this.names.unshift(this.heroname);
         this.heroname = '';
     };
@@ -47,5 +47,12 @@ export class ParentComponent implements OnInit {
     newMajor() {
         this.major++;
         this.minor = 0;
+    }
+    agreed = 0;
+    disagreed = 0;
+    voters = ['Mr. IQ', 'Ms. Universe', 'Bombasto'];
+    onVoted(agreed: boolean) {
+        console.log(agreed);
+        agreed ? this.agreed++ : this.disagreed++;
     }
 }

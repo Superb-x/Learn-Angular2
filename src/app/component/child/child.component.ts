@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 
 class Hero {
   constructor(
@@ -28,4 +28,11 @@ export class ChildComponent implements OnInit {
     
     ngOnInit() { }
     msg = '子组件';
+
+    @Output() onVote = new EventEmitter<boolean>();
+    voted = false;
+    vote(agreed: boolean) {
+        this.onVote.emit(agreed);
+        this.voted = true;
+    }
 }

@@ -31,6 +31,7 @@ import { EchartsNg2Module } from 'echarts-ng2';
 import { ParentComponent } from './component/parent/parent.component';
 import { ChildComponent } from './component/child/child.component';
 import { VersionChildComponent } from './component/child/changeVersion.component';
+import { CountdownTimerComponent } from './component/child/countdown.component';
 
 import {AppRoutingModule} from './app-routing.module';
 
@@ -60,6 +61,7 @@ import {AppRoutingModule} from './app-routing.module';
     ParentComponent,
     ChildComponent,
     VersionChildComponent,
+    CountdownTimerComponent
   ],
   providers: [HeroService, AjaxService, AppState, GlobalState, echartsDirective],
   bootstrap: [AppComponent]
