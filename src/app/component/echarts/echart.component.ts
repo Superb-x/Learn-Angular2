@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
  
 import { EChartOption } from 'echarts-ng2';
- 
+
 @Component({
     selector: 'basic-charts',
     templateUrl: 'echart.component.html'
@@ -12,145 +12,86 @@ export class EchartComponent {
     }
     option: EChartOption = {
         title: {
-            text: 'iphone销量',
-            subtext: '纯属虚构',
-            left: 'center'
+            //text: '2000-2016年中国汽车销量及增长率'
         },
         tooltip: {
-            trigger: 'item'
-        },
-        legend: {
-            orient: 'vertical',
-            left: 'left',
-            data:['iphone3','iphone4','iphone5']
-        },
-        visualMap: {
-            min: 0,
-            max: 2500,
-            left: 'left',
-            top: 'bottom',
-            text: ['高','低'],           // 文本，默认为数值文本
-            calculable: true
+            trigger: 'axis'
         },
         toolbox: {
-            show: true,
-            orient: 'vertical',
-            left: 'right',
-            top: 'center',
             feature: {
-                dataView: {readOnly: false},
-                restore: {},
-                saveAsImage: {}
+                dataView: {
+                    show: true,
+                    readOnly: false
+                },
+                restore: {
+                    show: true
+                },
+                saveAsImage: {
+                    show: true
+                }
             }
         },
-        series: [
-            {
-                name: 'iphone3',
-                type: 'map',
-                mapType: 'china',
-                roam: false,
-                label: {
-                    normal: {
-                        show: true
-                    },
-                    emphasis: {
-                        show: true
-                    }
-                },
-                data:[
-                    {name: '北京',value: this.randomData() },
-                    {name: '天津',value: this.randomData() },
-                    {name: '上海',value: this.randomData() },
-                    {name: '重庆',value: this.randomData() },
-                    {name: '河北',value: this.randomData() },
-                    {name: '河南',value: this.randomData() },
-                    {name: '云南',value: this.randomData() },
-                    {name: '辽宁',value: this.randomData() },
-                    {name: '黑龙江',value: this.randomData() },
-                    {name: '湖南',value: this.randomData() },
-                    {name: '安徽',value: this.randomData() },
-                    {name: '山东',value: this.randomData() },
-                    {name: '新疆',value: this.randomData() },
-                    {name: '江苏',value: this.randomData() },
-                    {name: '浙江',value: this.randomData() },
-                    {name: '江西',value: this.randomData() },
-                    {name: '湖北',value: this.randomData() },
-                    {name: '广西',value: this.randomData() },
-                    {name: '甘肃',value: this.randomData() },
-                    {name: '山西',value: this.randomData() },
-                    {name: '内蒙古',value: this.randomData() },
-                    {name: '陕西',value: this.randomData() },
-                    {name: '吉林',value: this.randomData() },
-                    {name: '福建',value: this.randomData() },
-                    {name: '贵州',value: this.randomData() },
-                    {name: '广东',value: this.randomData() },
-                    {name: '青海',value: this.randomData() },
-                    {name: '西藏',value: this.randomData() },
-                    {name: '四川',value: this.randomData() },
-                    {name: '宁夏',value: this.randomData() },
-                    {name: '海南',value: this.randomData() },
-                    {name: '台湾',value: this.randomData() },
-                    {name: '香港',value: this.randomData() },
-                    {name: '澳门',value: this.randomData() }
-                ]
+        grid: {
+            containLabel: true
+        },
+        legend: {
+            data: ['增速','销量']
+        },
+        xAxis: [{
+            type: 'category',
+            axisTick: {
+                alignWithLabel: true
             },
-            {
-                name: 'iphone4',
-                type: 'map',
-                mapType: 'china',
-                label: {
-                    normal: {
-                        show: true
-                    },
-                    emphasis: {
-                        show: true
-                    }
-                },
-                data:[
-                    {name: '北京',value: this.randomData() },
-                    {name: '天津',value: this.randomData() },
-                    {name: '上海',value: this.randomData() },
-                    {name: '重庆',value: this.randomData() },
-                    {name: '河北',value: this.randomData() },
-                    {name: '安徽',value: this.randomData() },
-                    {name: '新疆',value: this.randomData() },
-                    {name: '浙江',value: this.randomData() },
-                    {name: '江西',value: this.randomData() },
-                    {name: '山西',value: this.randomData() },
-                    {name: '内蒙古',value: this.randomData() },
-                    {name: '吉林',value: this.randomData() },
-                    {name: '福建',value: this.randomData() },
-                    {name: '广东',value: this.randomData() },
-                    {name: '西藏',value: this.randomData() },
-                    {name: '四川',value: this.randomData() },
-                    {name: '宁夏',value: this.randomData() },
-                    {name: '香港',value: this.randomData() },
-                    {name: '澳门',value: this.randomData() }
-                ]
-            },
-            {
-                name: 'iphone5',
-                type: 'map',
-                mapType: 'china',
-                label: {
-                    normal: {
-                        show: true
-                    },
-                    emphasis: {
-                        show: true
-                    }
-                },
-                data:[
-                    {name: '北京',value: this.randomData() },
-                    {name: '天津',value: this.randomData() },
-                    {name: '上海',value: this.randomData() },
-                    {name: '广东',value: this.randomData() },
-                    {name: '台湾',value: this.randomData() },
-                    {name: '香港',value: this.randomData() },
-                    {name: '澳门',value: this.randomData() }
-                ]
+            data: ['2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016']
+        }],
+        yAxis: [{
+            type: 'value',
+            name: '增速',
+            min: 0,
+            max: 50,
+            position: 'right',
+            axisLabel: {
+                formatter: '{value} %'
             }
-        ]
+        }, {
+            type: 'value',
+            name: '销量',
+            min: 0,
+            max: 3000,
+            position: 'left'
+        }],
+        series: [{
+            name: '增速',
+            type: 'line',
+            stack: '总量',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top',
+                    }
+                },
+            lineStyle: {
+                    normal: {
+                        width: 3,
+                        shadowColor: 'rgba(0,0,0,0.4)',
+                        shadowBlur: 10,
+                        shadowOffsetY: 10
+                    }
+                },
+            data: [1,13,37,35,15,13,25,21,6,45,32,2,4,13,6,4,11]
+        }, {
+            name: '销量',
+            type: 'bar',
+            yAxisIndex: 1,
+            stack: '总量',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top'
+                    }
+                },
+            data: [209,236,325,439,507,576,722,879,938,1364,1806,1851,1931,2198,2349,2460,2735]
+        }]
     };
 
 }

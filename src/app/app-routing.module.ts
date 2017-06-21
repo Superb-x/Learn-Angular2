@@ -8,6 +8,7 @@ import { WikiComponent } from './component/wiki/wiki.component';
 import { HeroListComponent } from './component/hero-list/animate.component';
 import { AboutComponent } from './component/about/about.component';
 import { EchartComponent } from './component/echarts/echart.component';
+import { ParentComponent } from './component/parent/parent.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'wiki',     component: WikiComponent, data: {title: "维基百科"} },
   { path: 'animate',     component: HeroListComponent, data: {title: "动画"} },
   { path: 'about', component: AboutComponent, data: {title: '关于'}},
-  { path: 'chart', component: EchartComponent, data: {title: '报表'}} 
+  { path: 'chart', component: EchartComponent, data: {title: '报表'}},
+  { path: 'communicate', component: ParentComponent, data: {title: '组件通信'}},
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
