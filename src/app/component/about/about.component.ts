@@ -23,7 +23,7 @@ export class AboutComponent implements OnInit {
         private route: ActivatedRoute,
         private title: Title
     ) {}
-    private endDate = new Date('2017-9-30 18:00:00');
+    private endDate = new Date('2018-1-26 18:00:00');
     ngOnInit() {
         console.log(this.route.data['value']);
         this.title.setTitle(this.route.data['value']['title'])

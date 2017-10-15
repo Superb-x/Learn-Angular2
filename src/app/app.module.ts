@@ -34,6 +34,9 @@ import { VersionChildComponent } from './component/child/changeVersion.component
 import { CountdownTimerComponent } from './component/child/countdown.component';
 
 import {AppRoutingModule} from './app-routing.module';
+import { AdminModule } from './admin/admin.module';
+import { LoginRoutingModule }      from './component/login/login-routing.module';
+import { LoginComponent }          from './component/login/login.component';
 
 @NgModule({
   imports: [
@@ -44,6 +47,8 @@ import {AppRoutingModule} from './app-routing.module';
     JsonpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     EchartsNg2Module,
+    LoginRoutingModule,
+    AdminModule,
     AppRoutingModule
   ],
   declarations: [
@@ -61,7 +66,8 @@ import {AppRoutingModule} from './app-routing.module';
     ParentComponent,
     ChildComponent,
     VersionChildComponent,
-    CountdownTimerComponent
+    CountdownTimerComponent,
+    LoginComponent
   ],
   providers: [HeroService, AjaxService, AppState, GlobalState, echartsDirective],
   bootstrap: [AppComponent]

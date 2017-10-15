@@ -10,6 +10,8 @@ import { AboutComponent } from './component/about/about.component';
 import { EchartComponent } from './component/echarts/echart.component';
 import { ParentComponent } from './component/parent/parent.component';
 
+// auth-guard
+import { AuthGuard }                from './auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full', data: {title: '英雄列表'} },
