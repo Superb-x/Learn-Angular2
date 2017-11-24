@@ -10,18 +10,23 @@ p {
     width: 512px;
     height: 384px;
     margin: 0 auto;
+    overflow: hidden;
 }
 .banner-box ul {
     width: 600%;
     padding: 0;
-    transform: translate3d(-512px, 0, 0);
+    transform: translate3d(0, 0, 0);
+    position: relative;
 }
 .banner-box ul li {
     width: 512px;
     height: 384px;
     list-style: none;
-    float: left;
+    position: absolute;
 }
 .banner-box ul li img {
     width: 100%;
+}
+.button {
+    text-align: center;
 }

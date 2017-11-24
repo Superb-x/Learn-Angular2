@@ -1,8 +1,14 @@
 <p [@myAwesomeAnimation]="state" (click)="animateMe()">我是angular动画</p>
+<div>
+    <div class="button prev" (click)="prev()">prev</div>
+    <div class="button next" (click)="next()">next</div>
+</div>
 <div class="banner-box">
     <ul>
-        <li *ngFor="let i of imgUrl">
-            <img src="{{i}}" alt="">
+        <li *ngFor="let item of imgUrl;let i=index"
+            [@slider]="slideState(i)"
+        >
+            <img src="{{item}}" alt="">
         </li>
     </ul>
 </div>

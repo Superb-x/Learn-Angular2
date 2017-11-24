@@ -35,6 +35,31 @@ import {
                 style({opacity: 0}),
                 animate('0.5s ease-in-out', style({ opacity: 1}))
             ])
+        ]),
+        trigger("slider", [
+            state("on", style({
+                "z-index": 3,
+                "transform": "translate3D(0,0,0)"
+            })),
+            state("prev", style({
+                "z-index": 1,
+                "transform": "translate3D(-100%, 0, 0)"
+            })),
+            state("next", style({
+                "z-index": 2,
+                "transform": "translate3D(100%, 0, 0)"
+            })),
+            state("off", style({
+                "z-index": 0,
+                "transform": "translate3D(0,0,0)",
+                "display": "none"
+            })),
+            transition("prev<=>on", [
+                animate("0.3s ease-in-out")
+            ]),
+            transition("next<=>on", [
+                animate("0.3s ease-in-out")
+            ])
         ])
     ],
     host: {'[@fadeInAnimation]': ''}
@@ -42,6 +67,7 @@ import {
 
 export class HeroListComponent implements OnInit {
     state: string = 'small';
+    private current = 0;
     constructor() { }
 
     ngOnInit() { 
@@ -59,5 +85,39 @@ export class HeroListComponent implements OnInit {
 
     animateMe() {
         this.state = (this.state === 'small' ? 'large' : 'small');
+    }
+
+    slideState(index){
+        if (this.imgUrl && this.imgUrl.length) {
+            if (this.current === 0) {
+                return index === 0 ? 'on' :
+                index === 1 ? 'next' :
+                index === this.imgUrl.length - 1 ? 'prev' : 'off';
+            } else if (this.current === this.imgUrl.length - 1) {
+                return index === this.imgUrl.length - 1 ? 'on' :
+                index === this.imgUrl.length - 2 ? 'prev' :
+                index === 0 ? 'next' :'off';
+            }
+            switch (index - this.current) {
+                case 0:
+                    return 'on';
+                case 1:
+                    return 'next';
+                case -1:
+                    return 'prev';
+                default:
+                    return 'off';
+            }
+        } else {
+            return 'off';
+        }
+    }
+
+    prev(){
+        this.current = this.current - 1 < 0 ? this.imgUrl.length - 1 : this.current - 1;
+    }
+
+    next(){
+        this.current = (this.current + 1) % this.imgUrl.length;
     }
 }
