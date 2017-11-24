@@ -81,18 +81,16 @@ export class HeroListComponent implements OnInit {
         'assets/images/4.jpg', 
         'assets/images/5.jpg',
         'assets/images/6.jpg'
-        ]
+    ]
 
     animateMe() {
         this.state = (this.state === 'small' ? 'large' : 'small');
     }
 
-    slideState(index){
+    slideState(index){  
         if (this.imgUrl && this.imgUrl.length) {
             if (this.current === 0) {
-                return index === 0 ? 'on' :
-                index === 1 ? 'next' :
-                index === this.imgUrl.length - 1 ? 'prev' : 'off';
+                return index === 0 ? 'on' : index === 1 ? 'next' : index === this.imgUrl.length - 1 ? 'prev' : 'off';
             } else if (this.current === this.imgUrl.length - 1) {
                 return index === this.imgUrl.length - 1 ? 'on' :
                 index === this.imgUrl.length - 2 ? 'prev' :
@@ -118,6 +116,6 @@ export class HeroListComponent implements OnInit {
     }
 
     next(){
-        this.current = (this.current + 1) % this.imgUrl.length;
+        this.current = (this.current + 1) % this.imgUrl.length;  // 取模就好了
     }
 }
