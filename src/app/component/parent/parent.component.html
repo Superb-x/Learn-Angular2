@@ -26,3 +26,11 @@
 <button (click)="timer.stop()">Stop</button>
 <div class="seconds">{{timer.seconds}}</div>
 <countdown-timer #timer></countdown-timer>
+<div>
+    <ul>
+        <li *ngFor="let hero of heroes" (click)="hide(hero)">
+            {{hero.name}}
+            <p *ngIf="hero.open">{{hero.power}}</p>
+        </li>    
+    </ul>
+</div>
